@@ -83,22 +83,22 @@ add_test_executable( graph_Boolector graph_Boolector.cpp
   REQUIRES Boolector_FOUND )
 
 add_test_executable( SMT2Parser_Boolector SMT2Parser_Boolector.cpp
-  REQUIRES Z3_FOUND Boolector_FOUND
+  REQUIRES Z3_FOUND Boolector_FOUND metaSMT_ENABLE_TOOLBOX
   LIBRARIES ${Boost_IOSTREAMS_LIBRARY} 
   )
 
 add_test_executable( SMT2Parser_SMT2 SMT2Parser_SMT2.cpp
-  REQUIRES Z3_FOUND
+  REQUIRES Z3_FOUND metaSMT_ENABLE_TOOLBOX
   LIBRARIES ${Boost_IOSTREAMS_LIBRARY} 
   )
 
 add_test_executable( SMT2Parser_STP SMT2Parser_STP.cpp
-  REQUIRES Z3_FOUND STP_FOUND
+  REQUIRES Z3_FOUND STP_FOUND metaSMT_ENABLE_TOOLBOX
   LIBRARIES ${Boost_IOSTREAMS_LIBRARY} 
   )
 
 add_test_executable( SMT2Parser_Z3_Backend SMT2Parser_Z3_Backend.cpp
-  REQUIRES Z3_FOUND
+  REQUIRES Z3_FOUND metaSMT_ENABLE_TOOLBOX
   LIBRARIES ${Boost_IOSTREAMS_LIBRARY} 
   )
 
