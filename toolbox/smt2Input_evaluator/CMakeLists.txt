@@ -48,3 +48,5 @@ add_tool_executable( smt2InputEvaluator_Z3_Backend
   REQUIRES
     Z3_FOUND
 )
+
+add_wrapper( smt2InputEvaluator PATH ${CMAKE_CURRENT_BINARY_DIR} )

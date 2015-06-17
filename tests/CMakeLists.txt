@@ -2,6 +2,9 @@ include(CMakeParseArguments)
 
 include_directories(../src ${metaSMT_INCLUDES})
 
+add_wrapper( z3  PATH ${Z3_BIN_DIRS} )
+add_wrapper( stp PATH ${STP_EXECUTABLE} LIB ${STP_SHARED_LIBRARY} )
+
 add_library(boost_test boost_test.cpp)
 link_libraries(boost_test metaSMT)
 
@@ -19,7 +22,7 @@ function (add_all_tests prog cfile)
 
   foreach(test  ${test_cases})
     #message(STATUS "${prog}/${test} ${prog} -t ${test}")
-    add_test("${prog}/${test}" ${prog} -t ${test} ${opts_ARGS})
+    add_test(NAME "${prog}/${test}" COMMAND $<TARGET_FILE:env_wrapper> $<TARGET_FILE:${prog}> -t ${test} ${opts_ARGS})
     set_tests_properties ("${prog}/${test}" PROPERTIES TIMEOUT ${TIMEOUT})
     if(opts_ENVIRONMENT)
       set_tests_properties("${prog}/${test}" PROPERTIES ENVIRONMENT ${opts_ENVIRONMENT})

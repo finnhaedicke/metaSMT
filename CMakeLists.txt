@@ -1,5 +1,5 @@
 PROJECT(metaSMT)
-cmake_minimum_required(VERSION 2.8.9)
+cmake_minimum_required(VERSION 2.8.12)
 
 include(CheckIncludeFileCXX)
 include(FeatureSummary)
@@ -30,6 +30,7 @@ include(cmake/get_git_version.cmake)
 include(cmake/build_type.cmake)
 include(cmake/default_compliler_flags.cmake)
 include(cmake/config_file.cmake)
+include(cmake/EnvironmentWrapper.cmake)
 
 ###  
 # Options to force disable certain solvers. 
